@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/services/database_helper.dart';
 import 'package:app/models/visita.dart';
+import 'package:app/screens/map.dart';
 
 class RegistrarVisitaScreen extends StatefulWidget {
   @override
