@@ -3,7 +3,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:app/screens/weather_service.dart';
 import 'package:app/screens/horoscope_service.dart';
 
-
 class MapScreen extends StatefulWidget {
   final double latitud;
   final double longitud;
@@ -36,8 +35,8 @@ class _MapScreenState extends State<MapScreen> {
       });
     } catch (e) {
       setState(() {
-        weatherInfo = 'Error al cargar el clima';
-        horoscopeInfo = 'Error al cargar el horóscopo';
+        weatherInfo = 'Error al cargar el clima: $e';
+        horoscopeInfo = 'Error al cargar el horóscopo: $e';
       });
     }
   }

@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:app/screens/map.dart'; 
 
 class WeatherService {
-  final String apiKey = 'bcf8a28f98cf33f29e14863106c43b59';
+  final String apiKey = '3b616082f31e01eb41dba63bd9f1957b';
 
   Future<Map<String, dynamic>> fetchWeather(double lat, double lon) async {
     final response = await http.get(
@@ -13,7 +12,7 @@ class WeatherService {
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
-      throw Exception('Failed to load weather data');
+      throw Exception('Failed to load weather data: ${response.statusCode} ${response.reasonPhrase}');
     }
   }
 }

@@ -6,7 +6,7 @@ import 'package:app/screens/map.dart';
 class HoroscopeService {
   Future<Map<String, dynamic>> fetchHoroscope(String sign) async {
     final response = await http.post(
-      Uri.parse('https://aztro.sameerkumar.website/?sign=$sign&day=today'),
+      Uri.parse('https://aztro.sameerkumar.website?sign= <sign> &day= <day>'),
     );
 
     if (response.statusCode == 200) {
