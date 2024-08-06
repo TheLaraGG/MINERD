@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:app/screens/map.dart'; 
+
 
 class HoroscopeService {
   Future<Map<String, dynamic>> fetchHoroscope(String sign) async {
