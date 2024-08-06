@@ -3,6 +3,7 @@ import 'incidencias_screen.dart';
 import 'visitas_screen.dart';
 import 'lista_incidencias.dart';
 import 'Lista_Visitas_screen.dart';
+import 'about_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  RegistrarVisitaScreen()),
+                MaterialPageRoute(builder: (context) => RegistrarVisitaScreen()),
               );
             },
           ),
@@ -49,9 +50,15 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
-
-
-
+          ListTile(
+            title: Text('Acerca de'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutScreen()),
+              );
+            },
+          ),
         ],
       ),
     );
