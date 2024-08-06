@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/services/database_helper.dart';
 import 'package:app/models/visita.dart';
-import 'package:app/screens/map.dart'; // Asegúrate de que la ruta sea correcta
+import 'package:app/screens/map.dart'; 
 
 class ListaVisitasScreen extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _ListaVisitasScreenState extends State<ListaVisitasScreen> {
       setState(() {
         visitas = data;
       });
-      print("Datos recuperados: $data"); // Para depuración
+      print("Datos recuperados: $data"); 
     } catch (e) {
       print("Error al recuperar visitas: $e");
     }
@@ -36,7 +36,7 @@ class _ListaVisitasScreenState extends State<ListaVisitasScreen> {
         title: Text('Lista de Visitas'),
       ),
       body: visitas.isEmpty
-          ? Center(child: Text('No hay visitas registradas.')) // Mensaje si no hay datos
+          ? Center(child: Text('No hay visitas registradas.')) 
           : ListView.builder(
               itemCount: visitas.length,
               itemBuilder: (context, index) {
