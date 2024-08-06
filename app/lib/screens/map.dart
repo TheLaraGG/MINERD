@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:app/screens/weather_service.dart';
+import 'package:app/screens/horoscope_service.dart';
 
 class MapScreen extends StatefulWidget {
   final double latitud;
@@ -15,11 +16,13 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
   String weatherInfo = 'Cargando...';
+  String horoscopeInfo = 'Cargando...';
 
   @override
   void initState() {
     super.initState();
     _fetchWeather();
+    _fetchHoroscope();
   }
 
   Future<void> _fetchWeather() async {
@@ -32,6 +35,21 @@ class _MapScreenState extends State<MapScreen> {
     } catch (e) {
       setState(() {
         weatherInfo = 'Error al cargar el clima: $e';
+      });
+    }
+  }
+
+  Future<void> _fetchHoroscope() async {
+    try {
+      
+      final horoscopeData = await HoroscopeService().fetchHoroscope('aries');
+
+      setState(() {
+        horoscopeInfo = 'Horóscopo: ${horoscopeData['description']}';
+      });
+    } catch (e) {
+      setState(() {
+        horoscopeInfo = 'Error al cargar el horóscopo: $e';
       });
     }
   }
@@ -71,6 +89,8 @@ class _MapScreenState extends State<MapScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(weatherInfo, style: TextStyle(fontSize: 16)),
+                SizedBox(height: 8),
+                Text(horoscopeInfo, style: TextStyle(fontSize: 16)),
               ],
             ),
           ),
