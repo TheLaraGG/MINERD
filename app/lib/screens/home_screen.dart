@@ -4,6 +4,7 @@ import 'visitas_screen.dart';
 import 'lista_incidencias.dart';
 import 'Lista_Visitas_screen.dart';
 import 'about_screen.dart';
+import 'noticias.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -47,6 +48,15 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ListaVisitasScreen()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Noticias MINERD'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NoticiasScreen()),
               );
             },
           ),
